@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+
+    <!-- Новый шрифт -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📝 ToDo List</h1>
+
+        <div class="input-area">
+            <input type="text" id="title" placeholder="Название задачи">
+            <textarea id="description" placeholder="Описание" rows="1"></textarea>
+            <input type="datetime-local" id="due_time" placeholder="Срок выполнения">
+            <button id="add-btn">Добавить</button>
+        </div>
+
+        <div class="controls">
+            <input type="text" id="search" placeholder="Поиск...">
+            <select id="filter-completed">
+                <option value="">Все</option>
+                <option value="false">Активные</option>
+                <option value="true">Выполненные</option>
+            </select>
+        </div>
+
+        <ul id="task-list"></ul>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

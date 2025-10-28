@@ -1,0 +1,111 @@
+
+GET http://127.0.0.1:8000/
+Accept: text/html
+
+###
+
+### Создание задач
+
+POST http://127.0.0.1:8000/tasks/
+Content-Type: application/json
+
+{
+  "title": "Task A",
+  "description": "alpha",
+  "due_time": "2025-12-31 23:59"
+}
+
+###
+
+POST http://127.0.0.1:8000/tasks/
+Content-Type: application/json
+
+{
+  "title": "Task B",
+  "description": "bravo"
+}
+
+###
+
+### Список задач: базовый
+GET http://127.0.0.1:8000/tasks
+Accept: application/json
+
+###
+
+### Фильтры
+GET http://127.0.0.1:8000/tasks?completed=false
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/tasks?has_due=true
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/tasks?search=alpha
+Accept: application/json
+
+###
+
+### Сортировка
+GET http://127.0.0.1:8000/tasks?sort_by=title&order=desc
+Accept: application/json
+
+###
+
+### Пагинация
+GET http://127.0.0.1:8000/tasks?limit=1&offset=1
+Accept: application/json
+
+###
+
+### Получение по id (замените {id})
+GET http://127.0.0.1:8000/tasks/1
+Accept: application/json
+
+###
+
+### Обновление по id
+PUT http://127.0.0.1:8000/tasks/1
+Content-Type: application/json
+
+{
+  "title": "Task A updated",
+  "description": "alpha updated",
+  "due_time": "2026-01-01 10:00",
+  "completed": true,
+  "notified_60": true,
+  "notified_5": false
+}
+
+###
+
+### Удаление по id
+DELETE http://127.0.0.1:8000/tasks/1
+Accept: application/json
+
+###
+
+### Негативные сценарии
+GET http://127.0.0.1:8000/tasks/99999
+Accept: application/json
+
+###
+
+DELETE http://127.0.0.1:8000/tasks/99999
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/tasks?limit=0
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/tasks?offset=-1
+Accept: application/json
+
+
+###
